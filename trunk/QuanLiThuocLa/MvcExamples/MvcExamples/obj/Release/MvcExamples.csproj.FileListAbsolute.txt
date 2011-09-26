@@ -1,0 +1,9 @@
+C:\Users\truongn\Dropbox\MvcExamples\MvcExamples\bin\MvcExamples.dll
+C:\Users\truongn\Dropbox\MvcExamples\MvcExamples\bin\MvcExamples.pdb
+C:\Users\truongn\Dropbox\MvcExamples\MvcExamples\bin\EntityFramework.dll
+C:\Users\truongn\Dropbox\MvcExamples\MvcExamples\bin\EntityFramework.xml
+C:\Users\truongn\Dropbox\MvcExamples\MvcExamples\obj\Release\ResolveAssemblyReference.cache
+C:\Users\truongn\Dropbox\MvcExamples\MvcExamples\obj\Release\RdlCompile.cache
+C:\Users\truongn\Dropbox\MvcExamples\MvcExamples\obj\Release\RdlCompile.compiled
+C:\Users\truongn\Dropbox\MvcExamples\MvcExamples\obj\Release\MvcExamples.dll
+C:\Users\truongn\Dropbox\MvcExamples\MvcExamples\obj\Release\MvcExamples.pdb
