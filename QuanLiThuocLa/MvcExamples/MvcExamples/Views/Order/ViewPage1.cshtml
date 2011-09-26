@@ -1,0 +1,40 @@
+﻿@model MvcExamples.Models.Order
+
+@{
+    ViewBag.Title = "ViewPage1";
+}
+
+<h2>ViewPage1</h2>
+
+<fieldset>
+    <legend>Order</legend>
+
+    <div class="display-label">CustomerId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CustomerId)
+    </div>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">Address</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address)
+    </div>
+
+    <div class="display-label">TaxNo</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TaxNo)
+    </div>
+
+    <div class="display-label">OrderDetailId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OrderDetailId)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.OrderId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
