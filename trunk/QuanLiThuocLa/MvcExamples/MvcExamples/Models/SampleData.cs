@@ -75,10 +75,19 @@ namespace MvcExamples.Models
 
             var listMenu = new List<Menu>
             {
-               new Menu { Text="Bán Hàng",Url="Order"},
-               new Menu { Text="Mua Hàng",Url="Order"},
-               new Menu { Text="Báo Cáo",Url="Order"}
-              
+               new Menu { Text="Bán Hàng",Action="Index"},
+               new Menu { Text="Mua Hàng",Action="Index"},
+               new Menu { Text="Báo Cáo",Action="Index"},
+               new Menu { Text="Xua",Action="Index",MenuParentId = 1},
+               new Menu { Text="Ban Hang 2",Action="Index",MenuParentId = 1},
+               new Menu { Text="Ban Hang 3",Action="Index",MenuParentId = 1},
+               new Menu { Text="Mua Hang 1",Action="Index",MenuParentId = 2},
+               new Menu { Text="Mua Hang 2",Action="Index",MenuParentId = 2},
+               new Menu { Text="Mua Hang 3",Action="Index",MenuParentId = 2},
+               new Menu { Text="Bao Cao 1",Action="Index",MenuParentId = 3},
+               new Menu { Text="Bao Cao 2",Action="Index",MenuParentId = 3},
+               new Menu { Text="Bao Cao 3",Action="Index",MenuParentId = 3}
+
             };
 
             listMenu.ForEach(a => context.Menus.Add(a));

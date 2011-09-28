@@ -13,10 +13,17 @@ namespace MvcExamples.Models
         public int ProductId { get; set; }
         public int ProductUnitId { get; set; }
         public int OrderId { get; set; }
+        [Display(Name = "Số Lượng")]
         public int Amount { get; set; }
         [DisplayFormat(DataFormatString = "{0:c}")]
+
+        [Display(Name = "Đơn giá")]
         public decimal Price { get; set; }
         [DisplayFormat(DataFormatString = "{0:c}")]
+
+
+        [Display(Name = "Thành Tiền")]
+
         public decimal TotalDetailAmount
         {
             get
@@ -25,6 +32,9 @@ namespace MvcExamples.Models
             }
         }
 
+
+        
+       
         public virtual Product Product { get; set; }
         public virtual ProductUnit ProductUnit { get; set; }
         public virtual Order Order { get; set; }

@@ -109,5 +109,13 @@ namespace MvcExamples.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
+
+        public ActionResult QuickSearch(string term)
+        {
+            var cus = db.Customers.Where(c => c.Name.Contains(term)).Take(10)
+                .Select(r => new { label = r.Name });
+            return Json(cus, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }
