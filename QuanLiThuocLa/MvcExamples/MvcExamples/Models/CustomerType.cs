@@ -10,8 +10,10 @@ namespace MvcExamples.Models
     {
         [Key]
         public int CustomerTypeId { get; set; }
+        [Display(Name = "Tên")]
         public string Name { get; set; }
 
+        [Display(Name = "Ngày Tạo")]
         public DateTime DateTime { get; set; }      
 
         public virtual ICollection<Customer> Customers { get; set; }

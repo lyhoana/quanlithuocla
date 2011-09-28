@@ -94,11 +94,15 @@ namespace MvcExamples.Controllers
                 {
 
                     detail.Price = detail.Amount * p1.First().Price;
+                    db.OrderDetails.Add(detail);
+                    db.SaveChanges();
                 }
-               
+                else
+                {
+                    ViewBag.Message = "Chưa khai báo giá cho sản phẩm này";
+                }            
 
-                db.OrderDetails.Add(detail);
-                db.SaveChanges();
+                
               
                 ViewBag.ProductId = new SelectList(db.Products, "ProductId", "Name");
                 ViewBag.ProductUnitId = new SelectList(db.ProductUnits, "ProductUnitId", "Name");

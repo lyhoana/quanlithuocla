@@ -10,7 +10,10 @@ namespace MvcExamples.Models
     {
         [Key]
         public int ProductUnitId { get; set; }
+        [Display(Name = "Đơn Vị")]
         public string Name { get; set; }
+    
+      
         public virtual ICollection<BuyPrice> BuyPrices { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }

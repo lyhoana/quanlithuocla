@@ -69,7 +69,6 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\CustomerTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductUnitController.cs" />
@@ -105,7 +104,29 @@
     <Compile Include="ViewModel\OrderDataIndex.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\content_bg.png" />
+    <Content Include="Content\Images\content_bottom.png" />
+    <Content Include="Content\Images\icon1.gif" />
+    <Content Include="Content\Images\main_bottom_bg.png" />
+    <Content Include="Content\Images\main_top_bg.png" />
+    <Content Include="Content\Images\menu_left.gif" />
+    <Content Include="Content\Images\menu_left.png" />
+    <Content Include="Content\Images\menu_mid.gif" />
+    <Content Include="Content\Images\menu_mid.png" />
+    <Content Include="Content\Images\menu_right.gif" />
+    <Content Include="Content\Images\menu_right.png" />
+    <Content Include="Content\Images\nav-bg.png" />
+    <Content Include="Content\Images\nav-left-bg.gif" />
+    <Content Include="Content\Images\nav-right-bg.gif" />
+    <Content Include="Content\Images\nav_bg.png" />
+    <Content Include="Content\Images\nav_left.png" />
+    <Content Include="Content\Images\nav_right.png" />
     <Content Include="Content\Images\panner.png" />
+    <Content Include="Content\Images\split.png" />
+    <Content Include="Content\Images\submenu_bg.png" />
+    <Content Include="Content\Images\submenu_bottom.png" />
+    <Content Include="Content\Images\submenu_top.png" />
+    <Content Include="Content\Menu.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -143,6 +164,7 @@
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\menu.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
     <Content Include="Views\CustomerType\Report.aspx" />
@@ -215,6 +237,9 @@
     <Content Include="Views\Store\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Content\Images\.DS_Store" />
+    <None Include="Content\Images\menu3.psd" />
+    <None Include="Content\Images\split.psd" />
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
@@ -229,13 +254,7 @@
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\Create.cshtml" />
     <Content Include="Views\Order\ViewPage1.cshtml" />
-    <Content Include="Views\Menu\Index.cshtml" />
-    <Content Include="Views\Menu\Details.cshtml" />
-    <Content Include="Views\Menu\Create.cshtml" />
-    <Content Include="Views\Menu\Edit.cshtml" />
-    <Content Include="Views\Menu\Delete.cshtml" />
-    <Content Include="Views\Menu\ListMenu.cshtml" />
-    <Content Include="Views\Menu\_SubIconPartial.cshtml" />
+    <Content Include="Views\Order\_OrderDetailPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Report\Report1.rdlc" />

@@ -23,6 +23,7 @@ namespace MvcExamples.Models
         public virtual ProductUnit ProductUnit{ get; set; }
 
         [DisplayFormat(DataFormatString = "{0:c}")]
+        [Display(Name = "Đơn giá")]
         public decimal Price { get; set; }
     }
 }
