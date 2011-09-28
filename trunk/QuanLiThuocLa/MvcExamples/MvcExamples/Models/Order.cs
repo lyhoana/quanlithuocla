@@ -16,10 +16,15 @@ namespace MvcExamples.Models
         public string Address { get; set; }
         public string TaxNo { get; set; }
         public string OrderDetailId { get; set; }
+        public DateTime Date { get; set; }
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         public virtual Customer Customer { get; set; }
-       
+
+        public Order()
+        {
+            Date = DateTime.Now;
+        }
        
     }
 }

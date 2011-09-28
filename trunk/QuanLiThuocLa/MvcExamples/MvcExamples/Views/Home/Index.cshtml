@@ -1,23 +1,7 @@
-﻿@{
+﻿@model IEnumerable<MvcExamples.Models.Menu>  
+@{
     ViewBag.Title = "Home Page";
 }
 
 <h2>@ViewBag.Message</h2>
-
-@{
-    string iframe = (string)ViewBag.Report;
-    if (iframe != "")
-    {
-        @:  ViewBag.Report
-        
-    }
-   
-    else{
-       @:  helo em yeu
-    }
-}
-<p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
- 
-</p>
 

@@ -73,6 +73,17 @@ namespace MvcExamples.Models
             context.SaveChanges();
 
 
+            var listMenu = new List<Menu>
+            {
+               new Menu { Text="Bán Hàng",Url="Order"},
+               new Menu { Text="Mua Hàng",Url="Order"},
+               new Menu { Text="Báo Cáo",Url="Order"}
+              
+            };
+
+            listMenu.ForEach(a => context.Menus.Add(a));
+            context.SaveChanges();
+
 
         }
      
