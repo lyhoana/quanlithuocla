@@ -23,7 +23,7 @@ namespace MvcExamples.Models
 
 
         [Display(Name = "Thành Tiền")]
-
+       
         public decimal TotalDetailAmount
         {
             get

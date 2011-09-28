@@ -102,8 +102,6 @@ namespace MvcExamples.Controllers
                     ViewBag.Message = "Chưa khai báo giá cho sản phẩm này";
                 }            
 
-                
-              
                 ViewBag.ProductId = new SelectList(db.Products, "ProductId", "Name");
                 ViewBag.ProductUnitId = new SelectList(db.ProductUnits, "ProductUnitId", "Name");
                 ViewBag.Orderid = order.OrderId;
