@@ -92,75 +92,8 @@ else
        if (Model.OrderDetails != null)
        {
 
-           Html.RenderPartial("_OrderDetailPartial", Model.OrderDetails);
-  @* <fieldset>
-        <legend>CHI TIẾT ĐƠN HÀNG</legend>
-        <table>
-            <tr>
-                <th>
-                   Sản Phẩm
-                </th>
-                <th>
-                    Đơn Vị
-                </th>
-                <th>
-                    Đơn giá
-                </th>
-               
-                <th>
-                    Số Lượng
-                </th>
-                <th>
-                    Thành Tiền
-                </th>
-            </tr>
-            @{decimal total = 0;}
-            @foreach (var item in Model.OrderDetails)
-            {
-                total = total + @item.TotalDetailAmount;
-                <tr>
-                    <td>
-                        @item.Product.Name
-                    </td>
-                    <td>
-                        @item.ProductUnit.Name
-                    </td>
-                      <td>
-                       @item.Price
-                    </td>
-                    <td>
-                        @item.Amount
-                    </td>
-                    <td>
-                        @item.TotalDetailAmount
-                    </td>
-                </tr>
-            }
-
-             <tr>
-                <th>
-                   
-                </th>
-                <th>
-                    
-                </th>
-                <th>
-                    
-                </th>
-               
-                <th>
-                    Tổng Tiền
-                </th>
-                <th>
-                    @total
-                </th>
-
-            </tr>
-
-        </table>
-    </fieldset> *@
-   
-       } 
+           Html.RenderPartial("../Order/_OrderDetailPartial", Model.OrderDetails);
+        } 
        
     <table >
         <tr>
