@@ -1,6 +1,6 @@
 ﻿@model MvcExamples.Models.Order
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "HỆ THỐNG BÁN HÀNG";
 }
 <h2>
     Create</h2>
@@ -78,6 +78,9 @@ else
             Address</div>
         <div class="display-field">
             @Html.DisplayFor(model => model.Address)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Date)
         </div>
     </fieldset>
     

@@ -17,7 +17,7 @@ namespace MvcExamples.Models
         public DbSet<ProductUnit> ProductUnits { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
-
+      
         // remove cac table co ten la so nhieu
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -26,6 +26,8 @@ namespace MvcExamples.Models
 
         
         public DbSet<Store> Stores { get; set; }
+
+        public DbSet<Menu> Menus { get; set; }
 
     }
 }

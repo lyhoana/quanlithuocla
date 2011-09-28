@@ -76,11 +76,15 @@ h5, h6 {
 
 /* you can specify a greater or lesser percentage for the 
 page width. Or, you can specify an exact pixel width. */
+
+
 .page {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
+
+
 
 header, #header {
     position: relative;
@@ -276,6 +280,10 @@ div#title {
     text-decoration: none;
 }
 
+#panner {
+    width: 100%;
+   
+}
 /* Styles for validation helpers
 -----------------------------------------------------------*/
 .field-validation-error {
