@@ -19,10 +19,8 @@
                 <DataSources>
                     <rsweb:ReportDataSource DataSourceId="SqlDataSource5" Name="DataSet1" />
                 </DataSources>
-             </LocalReport>
-          
-        </rsweb:ReportViewer>
-    
+             </LocalReport>          
+        </rsweb:ReportViewer>    
      
         <asp:SqlDataSource ID="SqlDataSource5" runat="server" 
             ConnectionString="<%$ ConnectionStrings:DBEntities %>" 
@@ -32,36 +30,7 @@
                     Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource4" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:DBEntities %>" 
-            SelectCommand="OrderDetailPro" SelectCommandType="StoredProcedure">
-            <SelectParameters>
-                <asp:SessionParameter DefaultValue="3" Name="OrderId" SessionField="OrderId" 
-                    Type="Int32" />
-            </SelectParameters>
-        </asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource3" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:DBEntities %>" 
-            SelectCommand="OrderDetailPro" SelectCommandType="StoredProcedure">
-            <SelectParameters>
-                <asp:SessionParameter DefaultValue="3" Name="OrderId" SessionField="OrderId" 
-                    Type="Int32" />
-            </SelectParameters>
-        </asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:DBEntities %>" 
-            SelectCommand="OrderDetailPro" SelectCommandType="StoredProcedure">
-            <SelectParameters>
-                <asp:SessionParameter DefaultValue="" Name="OrderId" SessionField="OrderId" 
-                    Type="Int32" />
-            </SelectParameters>
-        </asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:DBEntities %>" 
-            SelectCommand="OrderDetailPro" SelectCommandType="StoredProcedure">
-        </asp:SqlDataSource>
-    
-     
+        
     </div>
     </form>
 </body>
