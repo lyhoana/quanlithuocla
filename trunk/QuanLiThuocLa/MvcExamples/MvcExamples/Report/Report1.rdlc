@@ -1,41 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
   <DataSources>
-    <DataSource Name="DataSet1">
+    <DataSource Name="TruongDataSet">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>5707dc5f-b25b-46c5-a94a-e9b900d1153e</rd:DataSourceID>
+      <rd:DataSourceID>a4ed3698-213c-4428-8dac-a1a3f8c140ff</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="DataSet1">
       <Fields>
-        <Field Name="CustomerTypeId">
-          <DataField>CustomerTypeId</DataField>
+        <Field Name="OrderId">
+          <DataField>OrderId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="Name">
-          <DataField>Name</DataField>
+        <Field Name="CUS_NAME">
+          <DataField>CUS_NAME</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="DateTime">
-          <DataField>DateTime</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
+        <Field Name="CUS_ADDRES">
+          <DataField>CUS_ADDRES</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PRODUCT_NAME">
+          <DataField>PRODUCT_NAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UNIT_NAME">
+          <DataField>UNIT_NAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AMOUNT">
+          <DataField>AMOUNT</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="PRICE">
+          <DataField>PRICE</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
       <Query>
-        <DataSourceName>DataSet1</DataSourceName>
+        <DataSourceName>TruongDataSet</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <rd:DataSetInfo>
-        <rd:DataSetName>DataSet1</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\truongn.BIDC\Dropbox\MvcExamples\MvcExamples\DataSet1.xsd</rd:SchemaPath>
-        <rd:TableName>CustomerType</rd:TableName>
+        <rd:DataSetName>TruongDataSet</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\truongn\Dropbox\GoogleCode\QuanLiThuocLa\MvcExamples\MvcExamples\TruongDataSet.xsd</rd:SchemaPath>
+        <rd:TableName>OrderDetailPro</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>CustomerTypeTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>OrderDetailProTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -45,13 +61,13 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.07875in</Width>
+              <Width>1in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.07875in</Width>
+              <Width>1in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.07875in</Width>
+              <Width>1in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -67,7 +83,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Customer Type Id</Value>
+                              <Value>CUS NAME</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -97,7 +113,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Name</Value>
+                              <Value>PRODUCT NAME</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -127,7 +143,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Date Time</Value>
+                              <Value>PRICE</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -155,21 +171,21 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="CustomerTypeId">
+                    <Textbox Name="CUS_NAME">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!CustomerTypeId.Value</Value>
+                              <Value>=Fields!CUS_NAME.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>CustomerTypeId</rd:DefaultName>
+                      <rd:DefaultName>CUS_NAME</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -185,21 +201,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Name">
+                    <Textbox Name="PRODUCT_NAME">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Name.Value</Value>
+                              <Value>=Fields!PRODUCT_NAME.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Name</rd:DefaultName>
+                      <rd:DefaultName>PRODUCT_NAME</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -215,21 +231,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="DateTime">
+                    <Textbox Name="PRICE">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!DateTime.Value</Value>
+                              <Value>=Fields!PRICE.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>DateTime</rd:DefaultName>
+                      <rd:DefaultName>PRICE</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -265,9 +281,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0.61125in</Top>
+        <Top>0.24667in</Top>
+        <Left>1.28833in</Left>
         <Height>0.5in</Height>
-        <Width>6.23625in</Width>
+        <Width>3in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -278,78 +295,14 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <ReportParameters>
-    <ReportParameter Name="HEADER">
-      <DataType>String</DataType>
-      <Nullable>true</Nullable>
-      <DefaultValue>
-        <Values>
-          <Value>DEAFUL VALUE</Value>
-        </Values>
-      </DefaultValue>
-      <AllowBlank>true</AllowBlank>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-  </ReportParameters>
   <Width>6.5in</Width>
   <Page>
-    <PageHeader>
-      <Height>1in</Height>
-      <PrintOnFirstPage>true</PrintOnFirstPage>
-      <PrintOnLastPage>true</PrintOnLastPage>
-      <ReportItems>
-        <Textbox Name="HEADER">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=Parameters!HEADER.Value</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>HEADER</rd:DefaultName>
-          <Top>0.31958in</Top>
-          <Left>1.83in</Left>
-          <Height>0.25in</Height>
-          <Width>1in</Width>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-      </ReportItems>
-      <Style>
-        <Border>
-          <Style>None</Style>
-        </Border>
-      </Style>
-    </PageHeader>
-    <PageFooter>
-      <Height>1in</Height>
-      <PrintOnFirstPage>true</PrintOnFirstPage>
-      <PrintOnLastPage>true</PrintOnLastPage>
-      <Style>
-        <Border>
-          <Style>None</Style>
-        </Border>
-      </Style>
-    </PageFooter>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
     <TopMargin>1in</TopMargin>
     <BottomMargin>1in</BottomMargin>
     <Style />
   </Page>
-  <rd:ReportID>16b4ba86-a002-467c-ad46-0c5ba902a2bb</rd:ReportID>
+  <rd:ReportID>2f501ca8-6714-44f4-bba1-85c008ba6c1b</rd:ReportID>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
 </Report>

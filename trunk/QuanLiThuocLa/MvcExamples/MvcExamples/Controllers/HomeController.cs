@@ -14,8 +14,8 @@ namespace MvcExamples.Controllers
         {
             
             ViewBag.Message = "Welcome to ASP.NET MVC!";
-            var menus = db.Menus.ToList();
-            return View(menus);
+           
+            return View();
            
         }
        

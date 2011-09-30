@@ -27,7 +27,7 @@ namespace MvcExamples.Models
         
         public DbSet<Store> Stores { get; set; }
 
-        public DbSet<Menu> Menus { get; set; }
+       
 
     }
 }
