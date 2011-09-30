@@ -80,7 +80,7 @@ namespace MvcExamples.Controllers
                 db.Entry(customertype).State = EntityState.Modified;
                 db.SaveChanges();
                 //return RedirectToAction("Index");
-                Session["HEADER"] = DateTime.Now;
+                Session["OrderId"] = 4;
                 return RedirectToAction("Report");
             }
             return View(customertype);

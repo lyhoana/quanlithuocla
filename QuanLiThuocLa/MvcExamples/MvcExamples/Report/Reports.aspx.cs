@@ -16,13 +16,17 @@ namespace MvcExamples.Report
             if (!Page.IsPostBack)
             {
                 LocalReport rep = ReportViewer1.LocalReport;
+                
             
              //   DateTime p = (DateTime)Session["HEADER"];
                 
               //  ReportViewer1.LocalReport.SetParameters(new ReportParameter[] {
                //      new Microsoft.Reporting.WebForms.ReportParameter("OrderId",p.ToString())    
                 //        });
+                
                 ReportViewer1.LocalReport.Refresh();
+               
+
             }
         }
     }
