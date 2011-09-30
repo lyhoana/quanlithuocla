@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MvcExamples.Models;
+using MvcExamples.ViewModel;
 
 namespace MvcExamples.Controllers
 { 
@@ -110,11 +111,20 @@ namespace MvcExamples.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult QuickSearch(string term)
+        [HttpPost]
+        public ActionResult QuickSearch(int id)
         {
-            var cus = db.Customers.Where(c => c.Name.Contains(term)).Take(10)
-                .Select(r => new { label = r.Name });
-            return Json(cus, JsonRequestBehavior.AllowGet);
+            Customer cus1 = db.Customers.Find(id);
+            CustomerType cusType = db.CustomerTypes.Find(cus1.CustomerTypeId);
+            var cus = new CustomerViewModel
+            {
+                Name = cus1.Name,
+                Address = cus1.Address,
+                CustomerTypeName = cusType.Name
+                
+            };            
+            
+            return Json(cus);
         }
 
     }

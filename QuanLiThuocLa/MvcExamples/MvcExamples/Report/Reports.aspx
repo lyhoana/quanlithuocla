@@ -17,16 +17,51 @@
             WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="801px">
             <LocalReport ReportPath="Report\Report1.rdlc">
                 <DataSources>
-                    <rsweb:ReportDataSource DataSourceId="SqlDataSource1" Name="DataSet1" />
+                    <rsweb:ReportDataSource DataSourceId="SqlDataSource5" Name="DataSet1" />
                 </DataSources>
-            </LocalReport>
+             </LocalReport>
           
         </rsweb:ReportViewer>
     
+     
+        <asp:SqlDataSource ID="SqlDataSource5" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:DBEntities %>" 
+            SelectCommand="OrderDetailPro" SelectCommandType="StoredProcedure">
+            <SelectParameters>
+                <asp:SessionParameter DefaultValue="3" Name="OrderId" SessionField="OrderId" 
+                    Type="Int32" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource4" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:DBEntities %>" 
+            SelectCommand="OrderDetailPro" SelectCommandType="StoredProcedure">
+            <SelectParameters>
+                <asp:SessionParameter DefaultValue="3" Name="OrderId" SessionField="OrderId" 
+                    Type="Int32" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource3" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:DBEntities %>" 
+            SelectCommand="OrderDetailPro" SelectCommandType="StoredProcedure">
+            <SelectParameters>
+                <asp:SessionParameter DefaultValue="3" Name="OrderId" SessionField="OrderId" 
+                    Type="Int32" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:DBEntities %>" 
+            SelectCommand="OrderDetailPro" SelectCommandType="StoredProcedure">
+            <SelectParameters>
+                <asp:SessionParameter DefaultValue="" Name="OrderId" SessionField="OrderId" 
+                    Type="Int32" />
+            </SelectParameters>
+        </asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
             ConnectionString="<%$ ConnectionStrings:DBEntities %>" 
-            SelectCommand="SELECT * FROM [CustomerType]"></asp:SqlDataSource>
+            SelectCommand="OrderDetailPro" SelectCommandType="StoredProcedure">
+        </asp:SqlDataSource>
     
+     
     </div>
     </form>
 </body>

@@ -32,6 +32,7 @@ namespace MvcExamples.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.CustomerTypeId = new SelectList(db.CustomerTypes, "CustomerTypeId", "Name");
             ViewBag.CustomerId = new SelectList(db.Customers,"CustomerId", "Name");
             return View();
         } 
@@ -42,73 +43,22 @@ namespace MvcExamples.Controllers
        
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection, Order order , int? ProductId, int? ProductUnitId, int? Amount, int? OrderId)
+        public ActionResult Create(Order order )
         {
-            if (!OrderId.HasValue)
+
+            if (ModelState.IsValid)
             {
-
-                if (ModelState.IsValid)
-                {
-                    Customer cus = db.Customers.Find(order.CustomerId);
-                    if (cus != null)
-                    {
-                        order.Name = cus.Name;
-                        order.Address = cus.Address;
-                        order.Customer = cus;
-                        
-                    }
-                    db.Orders.Add(order);
-                    db.SaveChanges();
-                    ViewBag.ProductId = new SelectList(db.Products, "ProductId", "Name");
-                    ViewBag.ProductUnitId = new SelectList(db.ProductUnits, "ProductUnitId", "Name");
-                    ViewBag.Orderid = order.OrderId;
-
-                    return View(order);
-                }
-                else
-                {
-                    ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "Name");
-                    return View(order);
-                }
-            }
-            else
-            {
-                OrderDetail detail = new OrderDetail();
-                detail.ProductId = (int)ProductId;
-                int CustomerTypeId = 1;
-                Customer cus = db.Customers.Find(ProductId);
-                if (cus != null)
-                {
-                    CustomerTypeId = cus.CustomerTypeId;
-                }
-                detail.Product = db.Products.Find(detail.ProductId);               
-                detail.ProductUnitId = (int)ProductUnitId;
-                detail.ProductUnit = db.ProductUnits.Find(detail.ProductUnitId);
-                //var price = db.BuyPrices.Single((g => g.CustomerTypeId == CustomerTypeId);
-                var p1 = (from p in db.BuyPrices where p.ProductUnitId == ProductUnitId && p.ProductId == ProductId && p.CustomerTypeId ==CustomerTypeId
-                                   select p);
-
-                detail.OrderId = (int)OrderId;
-                detail.Amount = (int)Amount;
-                if (p1.Count() > 0)
-                {
-
-                    detail.Price = detail.Amount * p1.First().Price;
-                    db.OrderDetails.Add(detail);
-                    db.SaveChanges();
-                }
-                else
-                {
-                    ViewBag.Message = "Chưa khai báo giá cho sản phẩm này";
-                }            
-
+                db.Orders.Add(order);
+                db.SaveChanges();
+                ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "Name");
                 ViewBag.ProductId = new SelectList(db.Products, "ProductId", "Name");
-                ViewBag.ProductUnitId = new SelectList(db.ProductUnits, "ProductUnitId", "Name");
-                ViewBag.Orderid = order.OrderId;
-                order = db.Orders.Find(OrderId);
+                ViewBag.ProductUnitId = new SelectList(db.ProductUnits, "ProductUnitId","Name");
                 return View(order);
             }
-           
+
+            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "Name");
+            ViewBag.CustomerTypeId = new SelectList(db.CustomerTypes, "CustomerTypeId", "Name");
+            return View(order);
             
 
         }
