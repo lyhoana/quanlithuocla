@@ -1,0 +1,60 @@
+﻿@model IEnumerable<QLTL_V2.Models.Customer>
+
+<h2>Khách Hàng</h2>
+
+<p>
+    @Html.ActionLink("Tạo Khách Hàng Mới", "Create")
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        Tìm Theo Tên: @Html.TextBox("SearchString") &nbsp;
+        <input type="submit" value="Search" /></p>
+}
+<table>
+    <tr>
+        <th>
+            @Html.ActionLink("Tên", "Index", new { sortOrder=ViewBag.NameSortParm })
+        </th>
+        <th>
+            Địa Chỉ
+        </th>
+        <th>
+            TaxNo
+        </th>
+        <th>
+            PhoneNo
+        </th>
+        <th>
+            @Html.ActionLink("Loại Khách Hàng", "Index", new { sortOrder=ViewBag.NameSortParm })
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerType.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CustomerId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CustomerId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CustomerId })
+            @Html.ActionLink("Tạo Hóa Đơn Bán Hàng", "Delete", new { id=item.CustomerId })
+        </td>
+    </tr>
+}
+
+</table>

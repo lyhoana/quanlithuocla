@@ -1,0 +1,7 @@
+C:\Users\truongn\Dropbox\GoogleCode\QLTL_V2\QLTL_V2\bin\QLTL_V2.dll
+C:\Users\truongn\Dropbox\GoogleCode\QLTL_V2\QLTL_V2\bin\QLTL_V2.pdb
+C:\Users\truongn\Dropbox\GoogleCode\QLTL_V2\QLTL_V2\bin\EntityFramework.dll
+C:\Users\truongn\Dropbox\GoogleCode\QLTL_V2\QLTL_V2\bin\EntityFramework.xml
+C:\Users\truongn\Dropbox\GoogleCode\QLTL_V2\QLTL_V2\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\truongn\Dropbox\GoogleCode\QLTL_V2\QLTL_V2\obj\Debug\QLTL_V2.dll
+C:\Users\truongn\Dropbox\GoogleCode\QLTL_V2\QLTL_V2\obj\Debug\QLTL_V2.pdb
