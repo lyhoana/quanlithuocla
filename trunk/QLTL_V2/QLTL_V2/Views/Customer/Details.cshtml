@@ -1,13 +1,13 @@
 ﻿@model QLTL_V2.Models.Customer
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Thông Tin Khách Hàng Chi Tiết";
 }
 
-<h2>Details</h2>
+<h2>Thông Tin Khách Hàng Chi Tiết</h2>
 
 <fieldset>
-    <legend>Customer</legend>
+    <legend>Thông Tin Khách Hàng</legend>
 
     <div class="display-label">Name</div>
     <div class="display-field">
@@ -19,26 +19,14 @@
         @Html.DisplayFor(model => model.Address)
     </div>
 
-    <div class="display-label">TaxNo</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.TaxNo)
-    </div>
-
+    
     <div class="display-label">PhoneNo</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.PhoneNo)
     </div>
 
-    <div class="display-label">FaxNo</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.FaxNo)
-    </div>
-
-    <div class="display-label">Description</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Description)
-    </div>
-
+    
+    
     <div class="display-label">CreatedTime</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.CreatedTime)
@@ -50,6 +38,6 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.CustomerId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Chỉnh Sửa", "Edit", new { id=Model.CustomerId }) |
+    @Html.ActionLink("Danh Sách Khách Hàng", "Index")
 </p>

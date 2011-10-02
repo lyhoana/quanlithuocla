@@ -10,9 +10,9 @@ namespace QLTL_V2.Models
     {
         [Key]
         public int CustomerId { get; set; }
-        [Display(Name = "Tên")]
+        [Display(Name = "Tên"),Required]
         public string Name { get; set; }
-        [Display(Name = "Địa Chỉ")]
+        [Display(Name = "Địa Chỉ"),Required]
         public string Address { get; set; }
         [Display(Name = "Mã Số Thuế")]
         public string TaxNo { get; set; }
@@ -32,7 +32,7 @@ namespace QLTL_V2.Models
         {
             CreatedTime = DateTime.Now;
         } 
-
+        [Required]
         public int CustomerTypeId { get; set; }
         public virtual CustomerType CustomerType { get; set; }
         public ICollection<Order> Orders { get; set; }

@@ -2,25 +2,21 @@
 
 <h2>Khách Hàng</h2>
 
+<a href="@Url.Action("About", "Home")">
+	<img src="../../Content/Images/NewIcon.gif" align="bottom"  />abc</a> 
+
+
 <p>
-    @Html.ActionLink("Tạo Khách Hàng Mới", "Create")
+    @Html.ActionLink("Tạo KH Mới", "Create", null, new { style = "background: url('../../Content/Images/NewIcon.gif') no-repeat center right;text-align:botton;display:block; height:60px; width:60px;margin-top:-2px;text-decoration:underline;" })
 </p>
 
-
-
-@using (Ajax.BeginForm("UpdateForm", new AjaxOptions { UpdateTargetId = "textEntered" }))
-{
-  @Html.TextBox("textBox1","Enter text")
-  <input type="submit" value="Submit"/><br />
-  <span id="textEntered">Nothing Entered</span>
-}
 
 
 @using (Html.BeginForm())
 {
     <p>
         Tìm Theo Tên: @Html.TextBox("SearchString") &nbsp;
-        <input type="submit" value="Search" /></p>
+        <input type="submit" value="Tìm" /></p>
 }
 <table>
     <tr>
@@ -30,9 +26,7 @@
         <th>
             Địa Chỉ
         </th>
-        <th>
-            TaxNo
-        </th>
+       
         <th>
             PhoneNo
         </th>
@@ -50,9 +44,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Address)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TaxNo)
-        </td>
+        
         <td>
             @Html.DisplayFor(modelItem => item.PhoneNo)
         </td>
@@ -60,9 +52,9 @@
             @Html.DisplayFor(modelItem => item.CustomerType.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CustomerId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CustomerId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CustomerId })
+            @Html.ActionLink("Chỉnh sửa", "Edit", new { id=item.CustomerId }) |
+            @Html.ActionLink("Chi Tiết", "Details", new { id=item.CustomerId }) |
+         
             @Html.ActionLink("Tạo Hóa Đơn Bán Hàng", "FirstCreate", "Order", new { id = item.CustomerId }, null)
         </td>
     </tr>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<QLTL_V2.Models.BuyPrice>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Product
+        </th>
+        <th>
+            CustomerType
+        </th>
+        <th>
+            ProductUnit
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            CreatedTime
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerType.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductUnit.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedTime)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BuyPriceId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BuyPriceId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BuyPriceId })
+        </td>
+    </tr>
+}
+
+</table>

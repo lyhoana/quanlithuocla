@@ -97,13 +97,13 @@ header h1, #header h1 {
     border: none;
     line-height: 2em;
     font-size: 32px !important;
-    text-shadow: 1px 1px 2px #111;
+    
 }
 
 #main {
     padding: 30px 30px 15px 30px;
     background-color: #fff;
-    border-radius: 4px 0 0 0;
+    
     -webkit-border-radius: 4px 0 0 0;
     -moz-border-radius: 4px 0 0 0;
 }
@@ -117,7 +117,7 @@ footer,
     line-height: normal;
     margin: 0 0 30px 0;
     font-size: .9em;
-    border-radius: 0 0 4px 4px;
+    
     -webkit-border-radius: 0 0 4px 4px;
     -moz-border-radius: 0 0 4px 4px;
 }
@@ -277,42 +277,28 @@ div#title {
 
 /* Styles for validation helpers
 -----------------------------------------------------------*/
-.field-validation-error {
-    color: #ff0000;
-}
-
-.field-validation-valid {
-    display: none;
-}
-
-.input-validation-error {
-    border: 1px solid #ff0000;
-    background-color: #ffeeee;
-}
-
-.validation-summary-errors {
-    font-weight: bold;
-    color: #ff0000;
-}
-
-.validation-summary-valid {
-    display: none;
-}
-
 /* Styles for editor and display helpers
 ----------------------------------------------------------*/
 .display-label, 
 .editor-label {
-    margin: 1em 0 0 0;
-}
+float: left;
+width: 150px; /*width of label (left column)*/
+text-transform: uppercase;
+border-bottom: 2px solid red;
+margin-right: 15px; /*spacing with right column*/
+ }
 
 .display-field, 
 .editor-field {
-    margin: 0.5em 0 0 0;
+   width: 550px; /*width of form rows*/
+overflow: hidden;
+padding: 5px 0;
+   
 }
 
 .text-box {
     width: 30em;
+    font-size: 90px;
 }
 
 .text-box.multi-line {

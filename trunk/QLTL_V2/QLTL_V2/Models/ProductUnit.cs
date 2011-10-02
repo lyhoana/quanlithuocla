@@ -11,6 +11,7 @@ namespace QLTL_V2.Models
         [Key]
         public int ProductUnitId { get; set; }
         [Display(Name = "Đơn Vị")]
+        [Required]
         public string Name { get; set; }
     
       

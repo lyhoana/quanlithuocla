@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BuyPriceController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\CustomerTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -72,11 +73,12 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductUnitController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Controllers\BuyPrice.cs" />
+    <Compile Include="Models\BuyPrice.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerType.cs" />
     <Compile Include="Models\DBEntities.cs" />
@@ -646,6 +648,7 @@
     <None Include="Content\development-bundle\demos\tabs\ajax\content3-slow.php" />
     <None Include="Content\development-bundle\demos\tabs\ajax\content4-broken.php" />
     <Content Include="Views\Order\_OrderDetailPartial.cshtml" />
+    <Content Include="Content\Images\NewIcon.gif" />
     <None Include="QLTL.xsc">
       <DependentUpon>QLTL.xsd</DependentUpon>
     </None>
@@ -658,6 +661,16 @@
       <DependentUpon>QLTL.xsd</DependentUpon>
     </None>
     <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\BuyPrice\Index.cshtml" />
+    <Content Include="Views\BuyPrice\Details.cshtml" />
+    <Content Include="Views\BuyPrice\Create.cshtml" />
+    <Content Include="Views\BuyPrice\Edit.cshtml" />
+    <Content Include="Views\BuyPrice\Delete.cshtml" />
+    <Content Include="Views\Store\Index.cshtml" />
+    <Content Include="Views\Store\Details.cshtml" />
+    <Content Include="Views\Store\Create.cshtml" />
+    <Content Include="Views\Store\Edit.cshtml" />
+    <Content Include="Views\Store\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Report\Report1.rdlc" />
