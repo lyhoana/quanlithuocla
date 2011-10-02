@@ -17,9 +17,29 @@ namespace MvcExamples.Controllers
         //
         // GET: /Customer/
 
-        public ViewResult Index()
+        public ViewResult Index(string sortOrder, string searchString)
         {
-            var customers = db.Customers.Include(c => c.CustomerType);
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name desc" : "";
+            
+            var customers = from s in db.Customers.Include(o => o.CustomerType)
+                           select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                customers = customers.Where(s => s.Name.ToUpper().Contains(searchString.ToUpper()));
+                                       
+            }
+            switch (sortOrder)
+            {
+                case "Name desc":
+                    customers = customers.OrderByDescending(s => s.Name);
+                    break;
+                
+                default:
+                    customers = customers.OrderBy(s => s.Name);
+                    break;
+            }
+            
             return View(customers.ToList());
         }
 

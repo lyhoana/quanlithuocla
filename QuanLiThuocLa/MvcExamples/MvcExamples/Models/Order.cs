@@ -10,30 +10,18 @@ namespace MvcExamples.Models
     {
         [Key]
         public int OrderId { get; set; }
-
-        [Display(Name = "Mã Khác Hàng")]
-        public int? CustomerId { get; set; }
-        [Display(Name = "Tên Khác Hàng")]
-        public string Name { get; set; }
-
-        [Display(Name = "Địa Chỉ")]
-        public string Address { get; set; }
-        
-        public string OrderDetailId { get; set; }
-
-        [Display(Name = "Ngày Giờ")]
-        public DateTime Date { get; set; }
+        int CustomerId { get; set; }
 
        
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         public virtual Customer Customer { get; set; }
-   
 
+        public DateTime CreatedTime { get; set; }
         public Order()
         {
-            Date = DateTime.Now;
-        }
+            CreatedTime = DateTime.Now;
+        } 
        
     }
 }

@@ -14,6 +14,11 @@ namespace MvcExamples.Models
         public string Name { get; set; }
     
       
+        public DateTime CreatedTime { get; set; }
+        public ProductUnit()
+        {
+            CreatedTime = DateTime.Now;
+        } 
         public virtual ICollection<BuyPrice> BuyPrices { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }

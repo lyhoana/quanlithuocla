@@ -1,0 +1,70 @@
+﻿@model IEnumerable<MvcExamples.Models.OrderDetail>
+       
+<table>
+    <tr>
+        <th>
+            Sản Phẩm
+        </th>
+        <th>
+            Đơn Vị
+        </th>
+        
+        <th>
+            Số Lượng
+        </th>
+        <th>
+            Đơn Giá
+        </th>
+        <th>
+            Thành Tiền
+        </th>
+        <th></th>
+    </tr>
+@{decimal total_tmp = 0;}
+@foreach (var item in Model) {
+    
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductUnit.Name)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalDetailAmount)
+        </td>
+        <td>
+           @Html.ActionLink("Delete", "Delete", "OrderDetail", new { id = item.OrderDetailId }, null)
+        </td>
+    </tr>
+    total_tmp = total_tmp + item.TotalDetailAmount;
+}
+
+<tr>
+        <th>
+            
+        </th>
+        <th>
+           
+        </th>
+        
+        <th>
+            
+        </th>
+        <th>
+            Tổng Tiền
+        </th>
+        <th>
+            @total_tmp
+        </th>
+        <th></th>
+    </tr>
+
+</table>

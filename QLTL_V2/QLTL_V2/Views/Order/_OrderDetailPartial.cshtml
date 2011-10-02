@@ -1,5 +1,9 @@
 ﻿@model IEnumerable<QLTL_V2.Models.OrderDetail>
 
+<div id="error"> 
+@ViewBag.ErrMsg
+</div>           
+
 <table>
     <tr>
         <th>
@@ -38,10 +42,14 @@
         <td>
             @Html.DisplayFor(modelItem => item.TotalDetailAmount)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.OrderDetailId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.OrderDetailId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.OrderDetailId })
+        <td>            
+            @Ajax.ActionLink("Xóa","RemoveItem",new {id = item.OrderDetailId},new AjaxOptions{
+                UpdateTargetId="ItemDetais",
+                InsertionMode = InsertionMode.Replace,
+                HttpMethod = "GET"
+            
+       })
+            
         </td>
     </tr>
 }

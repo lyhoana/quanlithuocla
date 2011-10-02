@@ -23,8 +23,17 @@ namespace MvcExamples.Models
         [Display(Name = "Số FAX")]
         public string FaxNo { get; set; }
 
-        public int CustomerTypeId { get; set; }
+        [Display(Name = "Mô Tả")]
+        public string Description { get; set; }
 
+
+        public DateTime CreatedTime { get; set; }
+        public Customer()
+        {
+            CreatedTime = DateTime.Now;
+        } 
+
+        public int CustomerTypeId { get; set; }
         public virtual CustomerType CustomerType { get; set; }
         public ICollection<Order> Orders { get; set; }
        
