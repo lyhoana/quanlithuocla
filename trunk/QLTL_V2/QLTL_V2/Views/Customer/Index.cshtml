@@ -5,6 +5,17 @@
 <p>
     @Html.ActionLink("Tạo Khách Hàng Mới", "Create")
 </p>
+
+
+
+@using (Ajax.BeginForm("UpdateForm", new AjaxOptions { UpdateTargetId = "textEntered" }))
+{
+  @Html.TextBox("textBox1","Enter text")
+  <input type="submit" value="Submit"/><br />
+  <span id="textEntered">Nothing Entered</span>
+}
+
+
 @using (Html.BeginForm())
 {
     <p>
@@ -52,7 +63,7 @@
             @Html.ActionLink("Edit", "Edit", new { id=item.CustomerId }) |
             @Html.ActionLink("Details", "Details", new { id=item.CustomerId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.CustomerId })
-            @Html.ActionLink("Tạo Hóa Đơn Bán Hàng", "Delete", new { id=item.CustomerId })
+            @Html.ActionLink("Tạo Hóa Đơn Bán Hàng", "FirstCreate", "Order", new { id = item.CustomerId }, null)
         </td>
     </tr>
 }

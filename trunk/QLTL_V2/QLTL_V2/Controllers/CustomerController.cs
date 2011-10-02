@@ -129,5 +129,16 @@ namespace QLTL_V2.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
+
+        public string UpdateForm(string textBox1)
+        {
+            if (textBox1 != "Enter text")
+            {
+                return "You entered: \"" + textBox1.ToString() + "\" at " +
+                    DateTime.Now.ToLongTimeString();
+            }
+
+            return String.Empty;
+        }
     }
 }

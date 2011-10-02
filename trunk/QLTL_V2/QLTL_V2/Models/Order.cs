@@ -10,7 +10,7 @@ namespace QLTL_V2.Models
     {
         [Key]
         public int OrderId { get; set; }
-        int CustomerId { get; set; }
+        public int CustomerId { get; set; }
 
        
 
@@ -22,6 +22,8 @@ namespace QLTL_V2.Models
         {
             CreatedTime = DateTime.Now;
         } 
+
+
        
     }
 }
