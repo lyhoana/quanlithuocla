@@ -12,7 +12,6 @@ namespace QLTL_V2.Models
         public int StoreId { get; set; }
 
         [Required(ErrorMessage = "Vui Lòng nhập tên sản phẩm.")]
-        [Display(Name = "Tên sản phẩm")]
         public int ProductId { get; set; }
 
         [Required(ErrorMessage = "Vui Lòng nhập tên đơn vị.")]

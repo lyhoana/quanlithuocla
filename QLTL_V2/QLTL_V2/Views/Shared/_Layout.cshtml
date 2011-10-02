@@ -18,15 +18,18 @@
     <div class="page">
         <header>
             <div id="title">
-                <h1>My MVC Application</h1>
+                <h1>HỆ THỐNG QUẢN LÍ ĐẠI LÝ THUỐC LÁ</h1>
             </div>
             <div id="logindisplay">
                 @Html.Partial("_LogOnPartial")
             </div>
             <nav>
                 <ul id="menu">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Bán Hàng", "Index", "Customer")</li>
+                    <li>@Html.ActionLink("Doanh Số", "Index", "Order")</li>
+                    <li>@Html.ActionLink("Sản Phẩm", "Index", "Product")</li>
+                    <li>@Html.ActionLink("Khai Báo Giá", "Index", "BuyPrice")</li>
+                    <li>@Html.ActionLink("Tồn Kho", "Index", "Store")</li>
                 </ul>
             </nav>
         </header>

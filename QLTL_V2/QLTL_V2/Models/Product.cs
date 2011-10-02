@@ -14,7 +14,7 @@ namespace QLTL_V2.Models
         [Display(Name = "Mã Sản Phẩm")]
         public string Code { get; set; }    
 
-        [Display(Name = "Tên Sản Phẩm")]
+        [Display(Name = "Tên Sản Phẩm"),Required]
         public string Name { get; set; }
 
 

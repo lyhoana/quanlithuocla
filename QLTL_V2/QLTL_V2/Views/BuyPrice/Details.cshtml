@@ -1,0 +1,40 @@
+﻿@model QLTL_V2.Models.BuyPrice
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>BuyPrice</legend>
+
+    <div class="display-label">Product</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Product.Code)
+    </div>
+
+    <div class="display-label">CustomerType</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CustomerType.Name)
+    </div>
+
+    <div class="display-label">ProductUnit</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductUnit.Name)
+    </div>
+
+    <div class="display-label">Price</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+    </div>
+
+    <div class="display-label">CreatedTime</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatedTime)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.BuyPriceId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

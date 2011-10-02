@@ -10,7 +10,7 @@ namespace QLTL_V2.Models
     {
         [Key]
         public int CustomerTypeId { get; set; }
-        [Display(Name = "Tên")]
+        [Display(Name = "Tên"),Required]
         public string Name { get; set; }
 
         [Display(Name = "Mô Tả")]

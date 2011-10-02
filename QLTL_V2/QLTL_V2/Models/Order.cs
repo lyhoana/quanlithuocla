@@ -10,6 +10,8 @@ namespace QLTL_V2.Models
     {
         [Key]
         public int OrderId { get; set; }
+
+        [Required]
         public int CustomerId { get; set; }
 
        

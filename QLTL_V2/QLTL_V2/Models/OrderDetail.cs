@@ -10,10 +10,14 @@ namespace QLTL_V2.Models
     {
         [Key]
         public int OrderDetailId { get; set; }
+        [Required]
         public int ProductId { get; set; }
+        [Required]
         public int ProductUnitId { get; set; }
+        [Required]
         public int OrderId { get; set; }
         [Display(Name = "Số Lượng")]
+        [Required]
         public int Amount { get; set; }
         [DisplayFormat(DataFormatString = "{0:c}")]
 
