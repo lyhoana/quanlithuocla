@@ -1,0 +1,49 @@
+﻿@model IEnumerable<QLTL_V2.Models.OrderDetail>
+
+<table>
+    <tr>
+        <th>
+            Tên Mặt Hàng
+        </th>
+        <th>
+            Đơn Vị
+        </th>
+        
+        <th>
+            Số Lượng
+        </th>
+        <th>
+            Đơn Giá
+        </th>
+        <th>
+            Thành Tiền
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductUnit.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalDetailAmount)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OrderDetailId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OrderDetailId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OrderDetailId })
+        </td>
+    </tr>
+}
+
+</table>
