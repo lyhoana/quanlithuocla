@@ -4,18 +4,24 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Khách Hàng</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Tạo Khách Hàng Mới", "Create")
 </p>
+@using (Html.BeginForm())
+{
+    <p>
+        Tìm Theo Tên: @Html.TextBox("SearchString") &nbsp;
+        <input type="submit" value="Search" /></p>
+}
 <table>
     <tr>
         <th>
-            Name
+            @Html.ActionLink("Tên", "Index", new { sortOrder=ViewBag.NameSortParm })
         </th>
         <th>
-            Address
+            Địa Chỉ
         </th>
         <th>
             TaxNo
@@ -24,7 +30,7 @@
             PhoneNo
         </th>
         <th>
-            CustomerType
+            @Html.ActionLink("Loại Khách Hàng", "Index", new { sortOrder=ViewBag.NameSortParm })
         </th>
         <th></th>
     </tr>
@@ -50,6 +56,7 @@
             @Html.ActionLink("Edit", "Edit", new { id=item.CustomerId }) |
             @Html.ActionLink("Details", "Details", new { id=item.CustomerId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.CustomerId })
+            @Html.ActionLink("Tạo Hóa Đơn Bán Hàng", "Delete", new { id=item.CustomerId })
         </td>
     </tr>
 }

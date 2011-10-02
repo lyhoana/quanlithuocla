@@ -1,0 +1,39 @@
+﻿@model MvcExamples.Models.OrderDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>Bạn có muốn xóa sản phẩm này ra khỏi đơn hàng không ?</h3>
+<fieldset>
+    <legend>Chi Tiết sản phẩm / đơn hàng</legend>
+
+    
+
+    <div class="display-label">Đơn Vị</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductUnit.Name)
+    </div>
+
+   
+    <div class="display-label">Số Lượng</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Amount)
+    </div>
+
+    <div class="display-label">Đơn Giá</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+    </div>
+
+    <div class="display-label">Thành  Tiền</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TotalDetailAmount)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Xóa" />
+       
+    </p>
+}

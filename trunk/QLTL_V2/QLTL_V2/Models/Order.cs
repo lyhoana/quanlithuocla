@@ -16,14 +16,26 @@ namespace QLTL_V2.Models
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         public virtual Customer Customer { get; set; }
-
+       
         public DateTime CreatedTime { get; set; }
         public Order()
         {
             CreatedTime = DateTime.Now;
-        } 
-
-
+        }
+        [DisplayFormat(DataFormatString = "{0:c}")]
+        [Display(Name = "Tổng Tiền")]
+        public virtual decimal TotalAmount
+        {            
+            get
+            {
+                decimal result = 0;
+                foreach (var item in OrderDetails)
+                {
+                    result = result + item.TotalDetailAmount;
+                }
+                return result;
+            }
+        }
        
     }
 }

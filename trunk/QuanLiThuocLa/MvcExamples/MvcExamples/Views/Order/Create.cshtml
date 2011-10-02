@@ -18,7 +18,6 @@
             txtCustomerType.innerHTML 
             if (v != null && v != '') {
 
-
                 $.post("/Customer/QuickSearch", { "id": v },
                         function (data) {
                             // get the result and do some magic with it
@@ -41,7 +40,6 @@
             
         });
     });
-
 
 </script>
 @if (Model == null)
@@ -156,9 +154,7 @@ else
                 @Html.Editor("Amount")
             </th>
             <th>
-                <input type="submit" value="Thêm" />
-                <input type="hidden" name="OrderId" value='@Model.OrderId'/>
-                <input type="hidden" name="CustomerId" value='@Model.CustomerId'/>
+                <input type="submit" value="Thêm" />              
             </th>
         </tr>
         

@@ -8,9 +8,7 @@ namespace MvcExamples.Models
 {
     public class BuyPrice
     {
-        [Key]
-
-      
+        [Key]      
         public int BuyPriceId { get; set; }        
  
         public int ProductId { get; set; }
@@ -25,5 +23,11 @@ namespace MvcExamples.Models
         [DisplayFormat(DataFormatString = "{0:c}")]
         [Display(Name = "Đơn giá")]
         public decimal Price { get; set; }
+        public DateTime CreatedTime { get; set; }
+        public BuyPrice()
+        {
+            CreatedTime = DateTime.Now;
+        } 
+    
     }
 }
