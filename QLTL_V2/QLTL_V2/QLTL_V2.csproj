@@ -500,6 +500,9 @@
     <Content Include="Content\development-bundle\ui\minified\jquery.ui.tabs.min.js" />
     <Content Include="Content\development-bundle\ui\minified\jquery.ui.widget.min.js" />
     <Content Include="Content\development-bundle\version.txt" />
+    <Content Include="Content\Images\delete_icon.png" />
+    <Content Include="Content\Images\detail-icon.png" />
+    <Content Include="Content\Images\edit-icon.png" />
     <Content Include="Content\index.html" />
     <Content Include="Content\js\jquery-1.6.2.min.js" />
     <Content Include="Content\js\jquery-ui-1.8.16.custom.min.js" />

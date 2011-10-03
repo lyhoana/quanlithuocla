@@ -23,7 +23,7 @@ namespace QLTL_V2.Models
 
         [Display(Name = "Mô Tả")]
         public string Description { get; set; }
-
+         [Display(Name = "Thời Gian")]
         public DateTime CreatedTime { get; set; }
         public Product()
         {

@@ -7,3 +7,12 @@ C:\Users\truongn\Dropbox\GoogleCode\QLTL_V2\QLTL_V2\bin\EntityFramework.dll
 C:\Users\truongn\Dropbox\GoogleCode\QLTL_V2\QLTL_V2\bin\EntityFramework.xml
 C:\Users\truongn\Dropbox\GoogleCode\QLTL_V2\QLTL_V2\obj\Debug\QLTL_V2.dll
 C:\Users\truongn\Dropbox\GoogleCode\QLTL_V2\QLTL_V2\obj\Debug\QLTL_V2.pdb
+C:\Users\truongn.BIDC\Dropbox\GoogleCode\QLTL_V2\QLTL_V2\bin\QLTL_V2.dll
+C:\Users\truongn.BIDC\Dropbox\GoogleCode\QLTL_V2\QLTL_V2\bin\QLTL_V2.pdb
+C:\Users\truongn.BIDC\Dropbox\GoogleCode\QLTL_V2\QLTL_V2\bin\EntityFramework.dll
+C:\Users\truongn.BIDC\Dropbox\GoogleCode\QLTL_V2\QLTL_V2\bin\EntityFramework.xml
+C:\Users\truongn.BIDC\Dropbox\GoogleCode\QLTL_V2\QLTL_V2\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\truongn.BIDC\Dropbox\GoogleCode\QLTL_V2\QLTL_V2\obj\Debug\RdlCompile.cache
+C:\Users\truongn.BIDC\Dropbox\GoogleCode\QLTL_V2\QLTL_V2\obj\Debug\RdlCompile.compiled
+C:\Users\truongn.BIDC\Dropbox\GoogleCode\QLTL_V2\QLTL_V2\obj\Debug\QLTL_V2.dll
+C:\Users\truongn.BIDC\Dropbox\GoogleCode\QLTL_V2\QLTL_V2\obj\Debug\QLTL_V2.pdb

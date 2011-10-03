@@ -284,15 +284,18 @@ div#title {
 float: left;
 width: 150px; /*width of label (left column)*/
 text-transform: uppercase;
-border-bottom: 2px solid red;
-margin-right: 15px; /*spacing with right column*/
+margin-right: 30px; /*spacing with right column*/
+text-align: right;
+padding: 05px 0;
+font-weight: bold
  }
 
 .display-field, 
 .editor-field {
-   width: 550px; /*width of form rows*/
-overflow: hidden;
-padding: 5px 0;
+   width: 550px; /*width of form rows*/ 
+padding: 05px 0;
+text-align: left;
+
    
 }
 
@@ -307,4 +310,9 @@ padding: 5px 0;
 
 .tri-state {
     width: 6em;
+}
+
+#link-icon a:image 
+{
+    width: 20px;
 }
