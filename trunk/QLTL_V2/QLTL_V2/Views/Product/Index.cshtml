@@ -1,39 +1,33 @@
 ﻿@model IEnumerable<QLTL_V2.Models.Product>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Danh Sách Sản Phẩm";
 }
 
-<h2>Index</h2>
+<h2> @ViewBag.Title</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table>
-    <tr>
+    <tr>       
         <th>
-            Code
+            Tên 
         </th>
         <th>
-            Name
+            Hình Ảnh
         </th>
         <th>
-            ImageUrl
+            Đặc Tả 
         </th>
         <th>
-            Description
-        </th>
-        <th>
-            CreatedTime
+            Thời gian
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Code)
-        </td>
+    <tr>        
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
@@ -47,10 +41,12 @@
             @Html.DisplayFor(modelItem => item.CreatedTime)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
-        </td>
+           <div id="link_icon">
+            <a href="@Url.Action("Edit", "Product", new { id = @item.ProductId })"> <img src="../../Content/Images/edit-icon.png " height="25px" width="25px"/></a> 
+            <a href="@Url.Action("Details", "Product", new { id = @item.ProductId })"><img src="../../Content/Images/detail-icon.png" height="25px" width="25px" /></a> 
+            <a href="@Url.Action("Delete", "Product", new { id = @item.ProductId })"><img src="../../Content/Images/delete_icon.png" height="25px" width="25px"/></a> 
+
+        </div>
     </tr>
 }
 

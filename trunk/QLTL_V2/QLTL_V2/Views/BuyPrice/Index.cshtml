@@ -12,19 +12,19 @@
 <table>
     <tr>
         <th>
-            Product
+            Sản Phẩm
         </th>
         <th>
-            CustomerType
+            Loại Khách hàng
         </th>
         <th>
-            ProductUnit
+            Đơn Vị
         </th>
         <th>
-            Price
+            Giá
         </th>
         <th>
-            CreatedTime
+            Thời Gian
         </th>
         <th></th>
     </tr>
@@ -32,7 +32,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Product.Code)
+            @Html.DisplayFor(modelItem => item.Product.Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CustomerType.Name)
@@ -47,9 +47,11 @@
             @Html.DisplayFor(modelItem => item.CreatedTime)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BuyPriceId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BuyPriceId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BuyPriceId })
+            <div id="link_icon">
+        <a href="@Url.Action("Edit", "BuyPrice", new { id = @item.BuyPriceId })"> <img src="../../Content/Images/edit-icon.png " height="25px" width="25px"/></a> 
+        <a href="@Url.Action("Details", "BuyPrice", new { id = @item.BuyPriceId })"><img src="../../Content/Images/detail-icon.png" height="25px" width="25px" /></a> 
+        <a href="@Url.Action("Delete", "BuyPrice", new { id = @item.BuyPriceId })"><img src="../../Content/Images/delete_icon.png" height="25px" width="25px"/></a> 
+
         </td>
     </tr>
 }

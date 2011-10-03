@@ -23,10 +23,10 @@ namespace QLTL_V2.Models
 
             var listProduct = new List<Product>
             {
-               new Product { Name = "Mèo"},
-              new Product { Name = "YET"},
-               new Product { Name = "555"},
-               new Product { Name = "333"}
+               new Product {Code = "Mèo", Name = "Mèo"},
+              new Product { Code = "YET",Name = "YET"},
+               new Product { Code = "555", Name = "555"},
+               new Product { Code = "333",Name = "333"}
             };
             listProduct.ForEach(a => context.Products.Add(a));
             context.SaveChanges();
@@ -42,27 +42,38 @@ namespace QLTL_V2.Models
             
             listProductUnit.ForEach(a => context.ProductUnits.Add(a));
             context.SaveChanges();
-            
-            var listPrice = new List<BuyPrice>
-           {
-               new BuyPrice {ProductId = 1,ProductUnitId  = 3 ,CustomerTypeId=1, Price = 120000},
-               new BuyPrice {ProductId = 1,ProductUnitId  = 2 ,CustomerTypeId=1,  Price = 50000},
-               new BuyPrice {ProductId = 1,ProductUnitId  = 1 ,CustomerTypeId=1,  Price = 5500},
-               new BuyPrice {ProductId = 2,ProductUnitId  = 3 ,CustomerTypeId=1, Price = 120000},
-               new BuyPrice {ProductId = 2,ProductUnitId  = 2 ,CustomerTypeId=1,  Price = 50000},
-               new BuyPrice {ProductId = 2,ProductUnitId  = 1 ,CustomerTypeId=1,  Price = 5500},
-               new BuyPrice {ProductId = 2,ProductUnitId  = 1 ,CustomerTypeId=2,  Price = 5500},
-              
 
-           };
-            listPrice.ForEach(a => context.BuyPrices.Add(a));
+            foreach (var pro in listProduct)
+            {
+                foreach (var unit in listProductUnit)
+                {
+                    foreach (var type in cusType)
+                    {
+                        BuyPrice p = new BuyPrice { ProductId = pro.ProductId, ProductUnitId = unit.ProductUnitId, CustomerTypeId = type.CustomerTypeId, Price  = new Random().Next(4,10) };
+                        context.BuyPrices.Add(p);
+                        
+                    }
+                }
+            }            
+            
+           context.SaveChanges();
+
+           foreach (var pro in listProduct)
+           {
+               foreach (var unit in listProductUnit)
+               {
+                   Store s = new Store { ProductId = pro.ProductId , ProductUnitId = unit.ProductUnitId, Amount = new Random().Next(50,100)};
+                   context.Stores.Add(s);
+               }
+           }
+
            context.SaveChanges();
 
             var listCustomer = new List<Customer>
             {
-               new Customer { Name = "Customer 1",Address = "Adress",CustomerTypeId = 1,PhoneNo="000000"},
-               new Customer { Name = "Customer 2",Address = "Adress",CustomerTypeId = 2,PhoneNo="000000"},
-               new Customer { Name = "Cusomter 3",Address = "Adress",CustomerTypeId = 2,PhoneNo="000000"},
+               new Customer { Name = "NGUYỄN VĂN A",Address = "112 QUẬN GÒ VẤP",CustomerTypeId = 1,PhoneNo="0605456879"},
+               new Customer { Name = "NGUYỄN VĂN B",Address = "113 QUÂN 1",CustomerTypeId = 2,PhoneNo="0605456879"},
+               new Customer { Name = "TRẦN VĂN C",Address = "114 QUẬN 7",CustomerTypeId = 2,PhoneNo="0605456879"},
               
             };
             
