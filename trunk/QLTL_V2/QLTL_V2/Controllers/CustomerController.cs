@@ -16,6 +16,17 @@ namespace QLTL_V2.Controllers
         //
         // GET: /Customer/
 
+        public PartialViewResult Search(string SearchString)
+        {
+            var customers = from s in db.Customers
+                            select s;
+            if (SearchString != "")
+            {
+                customers = customers.Where(c => c.Name.ToUpper().Contains(SearchString.ToUpper()));
+            }
+            return PartialView("_CustomerPartial", customers.ToList());
+        }
+
         public ViewResult Index(string sortOrder, string searchString)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name desc" : "";

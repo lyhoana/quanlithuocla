@@ -503,6 +503,7 @@
     <Content Include="Content\Images\delete_icon.png" />
     <Content Include="Content\Images\detail-icon.png" />
     <Content Include="Content\Images\edit-icon.png" />
+    <Content Include="Content\Images\printer-icon.png" />
     <Content Include="Content\index.html" />
     <Content Include="Content\js\jquery-1.6.2.min.js" />
     <Content Include="Content\js\jquery-ui-1.8.16.custom.min.js" />
@@ -674,6 +675,9 @@
     <Content Include="Views\Store\Create.cshtml" />
     <Content Include="Views\Store\Edit.cshtml" />
     <Content Include="Views\Store\Delete.cshtml" />
+    <Content Include="Views\Order\_OrderPartial.cshtml" />
+    <Content Include="Views\Order\Delete.cshtml" />
+    <Content Include="Views\Customer\_CustomerPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Report\Report1.rdlc" />

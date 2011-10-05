@@ -4,8 +4,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
-@Html.ActionLink("In Hoa Don", "PrintReport", "Report", new { OrderId = Model.OrderId }, null)
+
+
+<h2>Tạo Hóa Đơn Bán Hàng</h2>
+<table cellpadding="0" cellspacing="0" border="0">
+
+<tr>
+<td align="center">
+<a href="@Url.Action("PrintReport", "Report", new { OrderId = Model.OrderId })"> <img src="../../Content/Images/printer-icon.png " height="50px" width="50px"/></a>  
+
+    <br />  <bold>In Hóa Đơn</bold>
+</td>
+
+</tr>
+</table>
+
+
+
+ 
 <fieldset>
     <legend>Order</legend>
     <div class="display-label">

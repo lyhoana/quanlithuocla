@@ -16,6 +16,8 @@ namespace QLTL_V2.Controllers
         private DBEntities db = new DBEntities();
         public ActionResult Index()
         {
+
+
             var orders = db.Orders.Include("Customer").ToList();
             return View(orders);
         }
@@ -57,6 +59,21 @@ namespace QLTL_V2.Controllers
                 return PartialView("_OrderDetailPartial", order.OrderDetails.ToList());
             }
 
+            var store = db.Stores.Single(o => o.ProductUnitId == ProductUnitId && o.ProductId == ProductId);
+
+            if (store == null || store.Amount < Amount)
+            {
+                ViewBag.ErrMsg = "Số lượng bán lớn hơn số lượng tồn tại trong kho, vui lòng nhập hàng !!!!";
+                return PartialView("_OrderDetailPartial", order.OrderDetails.ToList());
+
+            }
+            else
+            {
+                store.Amount = store.Amount - Amount;
+                db.Entry(store).State = EntityState.Modified;
+            }
+
+
             var p2 = (from p in db.OrderDetails
                      where p.OrderId == OrderRefId && p.ProductId == ProductId && p.ProductUnitId == ProductUnitId
                      select p);
@@ -75,12 +92,13 @@ namespace QLTL_V2.Controllers
                 db.Entry(p2.First()).State = EntityState.Modified;
             }
             db.SaveChanges();
-            var l = db.OrderDetails.Where(o => o.OrderId == OrderRefId);
+            var l = db.OrderDetails.Include("Product").Include("ProductUnit").Where(o => o.OrderId == OrderRefId);
             return PartialView("_OrderDetailPartial",l.ToList());
 
         }
 
         public PartialViewResult RemoveItem(int id)
+
         {
             OrderDetail orderDetail = db.OrderDetails.Find(id);
             int OrderRefId = orderDetail.OrderId;
@@ -88,8 +106,39 @@ namespace QLTL_V2.Controllers
             db.SaveChanges();
             var l = db.OrderDetails.Where(o => o.OrderId == OrderRefId);
             return PartialView("_OrderDetailPartial", l.ToList());
-            
 
+        }
+
+        public PartialViewResult Search(string CusName, DateTime? OrderDate)
+        {
+            List<Order> result = db.Orders.ToList();
+            if (OrderDate != null)
+            {
+                DateTime tmp = (DateTime)OrderDate;
+                result = result.Where(o => o.CreatedTime.Date == tmp.Date).ToList() ;
+            }
+            if (CusName != "")
+            {
+                result = result.Where(o => o.Customer.Name.ToUpper().Contains(CusName.ToString().ToUpper())).ToList();
+            }
+
+            return PartialView("_OrderPartial", result);
+
+        }
+
+        public ActionResult Delete(int OrderId)
+        {
+            Order order = db.Orders.Find(OrderId);
+            return View(order);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirm(int OrderId)
+        {
+            Order order = db.Orders.Find(OrderId);
+            db.Orders.Remove(order);
+            db.SaveChanges();
+            return RedirectToAction("Index");            
         }
        
        
