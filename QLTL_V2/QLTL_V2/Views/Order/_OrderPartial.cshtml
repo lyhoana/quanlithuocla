@@ -1,0 +1,42 @@
+﻿@model IEnumerable<QLTL_V2.Models.Order>
+
+<table>
+    <tr>
+        <th>
+            Khách Hàng
+        </th>
+        <th>
+            Thời Gian
+        </th>
+        <th>
+            Tổng Tiền
+        </th>
+        <th></th>
+    </tr>
+@{decimal total = 0;}
+@foreach (var item in Model) {
+    total = total + item.TotalAmount;
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalAmount)
+        </td>
+        <td>
+            <div id="link_icon">
+        <a href="@Url.Action("Create", "Order", new { Orderid = item.OrderId })"> <img src="../../Content/Images/edit-icon.png " height="25px" width="25px"/></a> 
+        <a href="@Url.Action("Delete", "Order", new { Orderid = item.OrderId })"><img src="../../Content/Images/delete_icon.png" height="25px" width="25px" /></a> 
+       
+
+        </div>
+        </td>
+    </tr>     
+}
+
+</table>
+
+

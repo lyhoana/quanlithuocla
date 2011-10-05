@@ -83,7 +83,7 @@ namespace QLTL_V2.Controllers
  
         public ActionResult Delete(int id)
         {
-            Product product = db.Products.Find(id);
+            Product product = db.Products.Find(id);           
             return View(product);
         }
 
@@ -94,9 +94,18 @@ namespace QLTL_V2.Controllers
         public ActionResult DeleteConfirmed(int id)
         {            
             Product product = db.Products.Find(id);
-            db.Products.Remove(product);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (product.OrderDetails.Count > 0 || product.BuyPrices.Count > 0)
+            {
+                ViewBag.ErrMsg = "Đang tồn tài các đơn hàng, giá liên quan đến sản phẩm này. Không thể xóa !!!";
+                return View(product);
+            }
+            else
+            {
+                db.Products.Remove(product);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+           
         }
 
         protected override void Dispose(bool disposing)

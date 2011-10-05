@@ -83,7 +83,9 @@ namespace QLTL_V2.Controllers
  
         public ActionResult Delete(int id)
         {
+
             ProductUnit productunit = db.ProductUnits.Find(id);
+           
             return View(productunit);
         }
 

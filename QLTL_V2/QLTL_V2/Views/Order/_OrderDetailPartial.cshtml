@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<QLTL_V2.Models.OrderDetail>
 
-<div id="error"> 
+<div id="items">
+<div class="error" > 
 @ViewBag.ErrMsg
 </div>           
 
@@ -25,10 +26,13 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@if (Model != null)
+{
+    foreach (var item in Model)
+{
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Product.Name)
+            @Html.DisplayFor(modelItem => item.Product.Code)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ProductUnit.Name)
@@ -43,15 +47,16 @@
             @Html.DisplayFor(modelItem => item.TotalDetailAmount)
         </td>
         <td>            
-            @Ajax.ActionLink("Xóa","RemoveItem",new {id = item.OrderDetailId},new AjaxOptions{
-                UpdateTargetId="ItemDetais",
-                InsertionMode = InsertionMode.Replace,
-                HttpMethod = "GET"
-            
+            @Ajax.ActionLink("Xóa", "RemoveItem", new { id = item.OrderDetailId }, new AjaxOptions
+       {
+           UpdateTargetId = "items",
+           InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET"
        })
             
         </td>
     </tr>
 }
-
+}
 </table>
+</div>
