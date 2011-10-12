@@ -1,0 +1,7 @@
+D:\truongn\NET\GoogleCode\QLTL_V3\QLTL_V3\bin\QLTL_V3.dll
+D:\truongn\NET\GoogleCode\QLTL_V3\QLTL_V3\bin\QLTL_V3.pdb
+D:\truongn\NET\GoogleCode\QLTL_V3\QLTL_V3\bin\EntityFramework.dll
+D:\truongn\NET\GoogleCode\QLTL_V3\QLTL_V3\bin\EntityFramework.xml
+D:\truongn\NET\GoogleCode\QLTL_V3\QLTL_V3\obj\Debug\ResolveAssemblyReference.cache
+D:\truongn\NET\GoogleCode\QLTL_V3\QLTL_V3\obj\Debug\QLTL_V3.dll
+D:\truongn\NET\GoogleCode\QLTL_V3\QLTL_V3\obj\Debug\QLTL_V3.pdb
