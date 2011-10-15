@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Create";
 }
+<script src="../../Scripts/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
 <h2>
     TAO HOA DON MOI</h2>
 <script type="text/javascript">
@@ -68,9 +69,15 @@
                     }
                 })
             },
+
+            select: function (event, ui) {
+
+                document.getElementById("ProductId").value = ui.item.ProductId;
+                $('.currency').formatCurrency();
+              
+            },
             change: function (event, ui) {
                 if (ui.item == null) {
-
                     document.getElementById("ProductName").focus();
                     document.getElementById("ProductName").select();
 
@@ -101,21 +108,26 @@
                 })
             },
             select: function (event, ui) {
-                var ProductUnitId = ui.item.value;
+                var ProductUnitId = ui.item.ProductUnitId;
                 var CustomerTypeId = document.getElementById("CustomerTypeId").value;
                 var ProductId = document.getElementById("ProductId").value;
-
-                $.post("/BuyPrice/GetPrice", { "term": term },
+                $.post("/BuyPrice/GetPrice", { ProductId: ProductId, ProductUnitId: ProductUnitId, CustomerTypeId: CustomerTypeId },
                     function (data) {
                         // Successful requests get here
                         // Update the page elements
-                        alert(data.Price);
+                        document.getElementById("Price").value = data.Price;
+                        var amount = document.getElementById("Amount").value;
+                        document.getElementById("TotalAmount").value = amount * data.Price;
+                        $('.currency').formatCurrency();
                     });
             },
 
             change: function (event, ui) {
                 if (ui.item == null) {
+                    document.getElementById("ProductUnitName").focus();
+                    document.getElementById("ProductUnitName").select();
 
+                } else {                   
 
                 }
             },
@@ -136,6 +148,22 @@
             return false;
         }
     });
+
+
+    function UpdateTotalAmount(env) {
+        var Amount = document.getElementById("Amount").value;
+        var Price = document.getElementById("Price").value;
+        var number = Number(Price.replace(/[^0-9\.]+/g, ""));
+        document.getElementById("TotalAmount").value = Amount * number;
+        $('.currency').formatCurrency();
+
+
+    }
+
+   
+
+
+
 </script>
 <div class="editor-label">
     Tìm Khách Hàng Theo Tên
@@ -168,7 +196,9 @@
     <div class="editor-field">
         @Html.TextBox("CustomerTypeName", null, new { disabled = "true" })
     </div>
-
+    <div class="editor-field">
+        @Html.Hidden("ProductId")
+    </div>
     <div class="editor-field">
         @Html.Hidden("CustomerId")
     </div>
@@ -203,13 +233,14 @@
             @Html.TextBox("ProductUnitName")
         </td>
         <td>
-            @Html.TextBox("Price")
+            @Html.TextBox("Price" ,null,new { onBlur = "UpdateTotalAmount()" , @class="currency" })
         </td>
         <td>
-            @Html.TextBox("Amount", 1)
+           
+            @Html.TextBox("Amount", 1, new { onBlur = "UpdateTotalAmount()" })
         </td>
         <td>
-            @Html.TextBox("TotalAmount", null, new { disabled = "true" })
+            @Html.TextBox("TotalAmount", null, new { disabled = "true", @class="currency" })
             <input type="submit" value="Them" />
         </td>
     </tr>
