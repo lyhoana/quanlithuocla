@@ -1,0 +1,35 @@
+﻿@model QLTL_V3.Models.Store
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Store</legend>
+
+    <div class="display-label">Product</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Product.Code)
+    </div>
+
+    <div class="display-label">ProductUnit</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductUnit.Name)
+    </div>
+
+    <div class="display-label">Amount</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Amount)
+    </div>
+
+    <div class="display-label">CreatedTime</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatedTime)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.StoreId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
