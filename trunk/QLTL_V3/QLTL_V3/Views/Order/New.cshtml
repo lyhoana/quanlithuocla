@@ -3,6 +3,7 @@
     ViewBag.Title = "Create";
 }
 <script src="../../Scripts/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
+<link href="../../Content/css/smoothness/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
 <h2>
     TAO HOA DON MOI</h2>
 <script type="text/javascript">
@@ -25,13 +26,13 @@
                 })
             },
             select: function (event, ui) {
-
                 document.getElementById("CustomerName").value = ui.item.Name;
                 document.getElementById("CustomerAddress").value = ui.item.Address;
                 document.getElementById("CustomerPhoneNo").value = ui.item.PhoneNo;
                 document.getElementById("CustomerId").value = ui.item.CustomerId;
                 document.getElementById("CustomerTypeName").value = ui.item.CustomerTypeName;
                 document.getElementById("CustomerTypeId").value = ui.item.CustomerTypeId;
+
 
             },
 
@@ -54,116 +55,63 @@
     });
 
 
-    $(function () {
-        $("#ProductName").autocomplete({
-            source: function (request, response) {
-                // define a function to call your Action (assuming UserController)
-                $.ajax({
-                    url: '/Product/SearchProduct', type: "POST", dataType: "json",
-                    // query will be the param used by your action method
-                    data: { term: request.term },
-                    success: function (data) {
-                        response($.map(data, function (item) {
-                            return { label: item.Name, value: item.Name, ProductId: item.ProductId }
-                        }))
-                    }
-                })
-            },
-
-            select: function (event, ui) {
-
-                document.getElementById("ProductId").value = ui.item.ProductId;
-                $('.currency').formatCurrency();
-              
-            },
-            change: function (event, ui) {
-                if (ui.item == null) {
-                    document.getElementById("ProductName").focus();
-                    document.getElementById("ProductName").select();
-
-                }
-            },
-
-
-            minLength: 1 // require at least one character from the user
-        });
-
-    });
-
-
-
-    $(function () {
-        $("#ProductUnitName").autocomplete({
-            source: function (request, response) {
-                // define a function to call your Action (assuming UserController)
-                $.ajax({
-                    url: '/ProductUnit/SearchProductUnit', type: "POST", dataType: "json",
-                    // query will be the param used by your action method
-                    data: { term: request.term },
-                    success: function (data) {
-                        response($.map(data, function (item) {
-                            return { label: item.Name, value: item.Name, ProductUnitId: item.ProductUnitId }
-                        }))
-                    }
-                })
-            },
-            select: function (event, ui) {
-                var ProductUnitId = ui.item.ProductUnitId;
-                var CustomerTypeId = document.getElementById("CustomerTypeId").value;
-                var ProductId = document.getElementById("ProductId").value;
-                $.post("/BuyPrice/GetPrice", { ProductId: ProductId, ProductUnitId: ProductUnitId, CustomerTypeId: CustomerTypeId },
-                    function (data) {
-                        // Successful requests get here
-                        // Update the page elements
-                        document.getElementById("Price").value = data.Price;
-                        var amount = document.getElementById("Amount").value;
-                        document.getElementById("TotalAmount").value = amount * data.Price;
-                        $('.currency').formatCurrency();
-                    });
-            },
-
-            change: function (event, ui) {
-                if (ui.item == null) {
-                    document.getElementById("ProductUnitName").focus();
-                    document.getElementById("ProductUnitName").select();
-
-                } else {                   
-
-                }
-            },
-
-
-            minLength: 1 // require at least one character from the user
-        });
-
-    });
-
-
     $(document).keydown(function (e) {
-        if (e.which == 17) isCtrl = true;
-        if (e.which == 83 && isCtrl == true) {
+        if (e.which == 18) isAlt = true;
+        if (e.which == 83 && isAlt == true) {
             //run code for CTRL+S -- ie, save!
             document.getElementById("CustomerTerm").focus();
-            isCtrl = false;
+            isAlt = false;
+            return false;
+        } else if (e.which == 67 && isAlt == true) // Ctr - C to Customer Search
+        {
+            document.getElementById("CustomerTerm").focus();
+            document.getElementById("CustomerTerm").select();
+            isAlt = false;
+            return false;
+
+        } else if (e.which == 80 && isAlt == true) // Ctr - P to Customer Search
+        {
+            document.getElementById("Price").focus();
+            document.getElementById("Price").select();
+            isAlt = false;
             return false;
         }
     });
 
 
-    function UpdateTotalAmount(env) {
-        var Amount = document.getElementById("Amount").value;
-        var Price = document.getElementById("Price").value;
-        var number = Number(Price.replace(/[^0-9\.]+/g, ""));
-        document.getElementById("TotalAmount").value = Amount * number;
-        $('.currency').formatCurrency();
+    function UpdatePrice() {
+        var CustomerTypeId = document.getElementById("CustomerTypeId").value;
+        var ProductId = document.getElementById("ProductId").value;
+        var ProductUnitId = document.getElementById("ProductUnitId").value;
+        $.post("/BuyPrice/GetPrice", { ProductId: ProductId, ProductUnitId: ProductUnitId, CustomerTypeId: CustomerTypeId },
+                    function (data) {
+                        // Successful requests get here
+                        // Update the page elements
+                        document.getElementById("Price").value = data.Price;
+                        UpdateTotalAmount();
+                    });
 
 
     }
 
-   
+
+    function UpdateTotalAmount() {
+        var amount = document.getElementById("Amount").value;
+        var price = document.getElementById("Price").value;
+        var n_price = Number(price.replace(/[^0-9\.]+/g, ""));
+        document.getElementById("TotalAmount").value = amount * n_price;
+        $('.currency').formatCurrency();
+    };
 
 
+    $(document).ready(function () {
+        //  o_Price = document.getElementById("Price");
+        // o_Price.onchange = function () { UpdateTotalAmount(); };
+        //  o_Price.setAttribute("class", "currency");
 
+    });
+  
+    
 </script>
 <div class="editor-label">
     Tìm Khách Hàng Theo Tên
@@ -189,15 +137,11 @@
     <div class="editor-field">
         @Html.TextBox("CustomerPhoneNo", null, new { disabled = "true" })
     </div>
-
-     <div class="editor-label">
+    <div class="editor-label">
         Loại Khách Hàng
     </div>
     <div class="editor-field">
         @Html.TextBox("CustomerTypeName", null, new { disabled = "true" })
-    </div>
-    <div class="editor-field">
-        @Html.Hidden("ProductId")
     </div>
     <div class="editor-field">
         @Html.Hidden("CustomerId")
@@ -205,43 +149,59 @@
     <div class="editor-field">
         @Html.Hidden("CustomerTypeId")
     </div>
-   
 </fieldset>
-<table>
-    <tr>
-        <th>
-            Sản Phẩm
-        </th>
-        <th>
-            Đơn Vị
-        </th>
-        <th>
-            Đơn Giá
-        </th>
-        <th>
-            Số Luợng
-        </th>
-        <th>
-            Thành Tiền
-        </th>
-    </tr>
-    <tr>
-        <td>
-            @Html.TextBox("ProductName")
-        </td>
-        <td>
-            @Html.TextBox("ProductUnitName")
-        </td>
-        <td>
-            @Html.TextBox("Price" ,null,new { onBlur = "UpdateTotalAmount()" , @class="currency" })
-        </td>
-        <td>
-           
-            @Html.TextBox("Amount", 1, new { onBlur = "UpdateTotalAmount()" })
-        </td>
-        <td>
-            @Html.TextBox("TotalAmount", null, new { disabled = "true", @class="currency" })
-            <input type="submit" value="Them" />
-        </td>
-    </tr>
-</table>
+@using (Ajax.BeginForm("AddItem", new AjaxOptions
+{
+    HttpMethod = "GET",
+    UpdateTargetId = "ItemDetails"
+}))
+{
+    <table>
+        <tr>
+            <th>
+                Sản Phẩm
+            </th>
+            <th>
+                Đơn Vị
+            </th>
+            <th>
+                Đơn Giá
+            </th>
+            <th>
+                Số Luợng
+            </th>
+            <th>
+                Thành Tiền
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @Html.DropDownList("ProductId", (SelectList)ViewBag.ProductId, new { @OnChange = "UpdatePrice()" })
+            </td>
+            <td>
+                @Html.DropDownList("ProductUnitId", null, new { @OnChange = "UpdatePrice()" })
+            </td>
+            <td>
+                @Html.TextBox("Price", null, new { @OnChange = "UpdateTotalAmount()", @class = "currency" })
+            </td>
+            <td>
+                @Html.TextBox("Amount", 1, new { @OnChange = "UpdateTotalAmount()" })
+            </td>
+            <td>
+                @Html.TextBox("TotalAmount", null, new { @OnChange = "UpdateTotalAmount()", @class = "currency", @disabled = "true" })
+                @Html.Hidden("OrderId", @Model.OrderId)
+                <input type="submit" value="Thêm" />
+            </td>
+        </tr>
+    </table>
+}
+<div id="ItemDetails">
+    @{        
+        if (Model.OrderDetails != null)
+        {
+            var test = Model.OrderDetails;
+            Html.RenderPartial("_OrderDetailPartial", test.ToList());
+        }
+      
+    }
+</div>

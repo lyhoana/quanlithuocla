@@ -1,0 +1,68 @@
+﻿@model IEnumerable<QLTL_V3.Models.OrderDetail>
+
+<div id="items">
+<div class="error" > 
+@ViewBag.ErrMsg
+</div>           
+
+<table>
+    <tr>
+        <th> STT</th>
+        <th>
+            Tên Mặt Hàng
+        </th>
+        <th>
+            Đơn Vị
+        </th>
+        
+        <th>
+            Số Lượng
+        </th>
+        <th>
+            Đơn Giá
+        </th>
+        <th>
+            Thành Tiền
+        </th>
+        <th></th>
+    </tr>
+
+@if (Model != null)
+{
+    int index = 1;
+    foreach (var item in Model)
+{
+    <tr>
+        <td>
+           @index
+           @{index++;}
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductUnit.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalDetailAmount)
+        </td>
+        <td>            
+            @Ajax.ActionLink("Xóa", "RemoveItem", new { id = item.OrderDetailId }, new AjaxOptions
+       {
+           UpdateTargetId = "items",
+           InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET"
+       })
+            
+        </td>
+    </tr>
+}
+}
+</table>
+</div>
